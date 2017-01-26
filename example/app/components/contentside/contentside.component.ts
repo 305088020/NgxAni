@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
                 </div>
 
 
-                <div class="col-md-10">
+                <div class="col-md-10 clearfix">
                     <section1></section1>
                     <section2></section2>
                     <section3></section3>

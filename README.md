@@ -11,17 +11,17 @@ NgxAni is a service class, do not rely on any file. You can use it in any Compon
 
 ## Install and Usage
 Quick Start
-Install and manage Ngxui with npm.
+Install and manage NgxAni with npm.
 
 ```
-$ npm install ngxui --save
+$ npm install ngxani --save
 ```
 
-import and use the Ngxui library.
+import and use the NgxAni library.
 
 ```
 //1. import module
-import { NgxAniModule } from 'ngxui';
+import { NgxAniModule } from 'ngxani';
 
 //2. set ngModule
 @NgModule({
@@ -29,7 +29,7 @@ import { NgxAniModule } from 'ngxui';
     ... ...
 
 //3. import service
-import { NgxAni } from 'ngxui';
+import { NgxAni } from 'ngxani';
 
 //4. constructor
 constructor(private ngxAni: NgxAni) { }

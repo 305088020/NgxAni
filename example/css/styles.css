@@ -7,6 +7,10 @@ html {
     font-size: 14px;
 }
 
+.clearfix{
+  clear:both;
+}
+
 .pointer {
     cursor: pointer;
 }

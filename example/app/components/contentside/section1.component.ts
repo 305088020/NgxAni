@@ -21,13 +21,13 @@ import { Component } from '@angular/core';
             </div>
 
             <h3>Quick Start</h3>
-            <p>Install and manage Ngxui with <a href="https://www.npmjs.com/package/ngxani">npm</a>.
+            <p>Install and manage NgxAni with <a href="https://www.npmjs.com/package/ngxani">npm</a>.
             </p>
             <pre><code class="javascript">
-$ npm install ngxui</code></pre>
+$ npm install ngxani</code></pre>
 
 
-            <p>import and use the Ngxui library.</p>
+            <p>import and use the NgxAni library.</p>
             <pre><code class="ts">{{code}}</code></pre>
 
         </div>
@@ -40,7 +40,7 @@ $ npm install ngxui</code></pre>
 export class Section1Component {
     private code = `
 //1. import module
-import { NgxAniModule } from 'ngxui';
+import { NgxAniModule } from 'ngxani';
 
 //2. set ngModule
 @NgModule({
@@ -48,7 +48,7 @@ import { NgxAniModule } from 'ngxui';
     ... ...
 
 //3. import service
-import { NgxAni } from 'ngxui';
+import { NgxAni } from 'ngxani';
 
 //4. constructor
 constructor(private ngxAni: NgxAni) { }
