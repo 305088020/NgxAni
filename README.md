@@ -35,6 +35,8 @@ import { NgxAni } from 'ngxui';
 constructor(private ngxAni: NgxAni) { }
 
 //5. use
+//<button (click)="animation(rect)">click animate</button>
+//<div class="rect" #rect></div>
 private animation(dom: ElementRef) {
   this.ngxAni.to(dom, 1, {
       width: "200px",
@@ -54,7 +56,7 @@ view on http://localhost:4200/
 ## Future
 
 NgxAni is not strongly dependent on angular2 and typescript.  
-The next step I want to bring it to Reacthttps://facebook.github.io/react/, so stay tuned!
+The next step I want to bring it to React[https://facebook.github.io/react/](https://facebook.github.io/react/), so stay tuned!
 
 ## License
 

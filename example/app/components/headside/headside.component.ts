@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
                 <h4>A Simple Animation Plugin for Angular2+.</h4>
             </div>
 
-            <button class="btn btn-primary">Download</button>
+            <button class="btn btn-primary" (click)="download()">Download</button>
+            <button class="btn btn-primary" (click)="npm()">Npm</button>
         </div>
     </div>
     `,
@@ -20,4 +21,11 @@ import { Component } from '@angular/core';
 
 export class HeadSideComponent {
 
+    private download() {
+        location.href = "https://github.com/a-jie/NgxAni";
+    }
+
+    private npm() {
+        location.href = "https://www.npmjs.com/package/ngxani";
+    }
 }

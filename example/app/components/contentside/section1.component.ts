@@ -11,10 +11,11 @@ import { Component } from '@angular/core';
             <div class="info">
                 <h4 class="blur">About NgxAni</h4>
                 <p>NgxAni is an animation plugin for AngularJS2+.
-                <br>
+
                 It is very simple and convenient to use. At the same time it has very good compatibility.
                 <br>
                 It can almost help you achieve any animation effect you want. You only need a few lines of code to get what you want！
+                <br>
                 NgxAni is a service class, do not rely on any file. You can use it in any Component or Directive.
                 </p>
             </div>
@@ -53,6 +54,8 @@ import { NgxAni } from 'ngxui';
 constructor(private ngxAni: NgxAni) { }
 
 //5. use
+//<button (click)="animation(rect)">click animate</button>
+//<div class="rect" #rect></div>
 private animation(dom: ElementRef) {
   this.ngxAni.to(dom, 1, {
       width: "200px",
