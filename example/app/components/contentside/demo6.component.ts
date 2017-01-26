@@ -45,4 +45,8 @@ private animation(rect){
         );
     }
 
+    private getWidth(): number {
+        return document.body.clientWidth || document.documentElement.clientWidth || window.screen.availWidth;
+    }
+
 }

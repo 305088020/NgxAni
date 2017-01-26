@@ -26,14 +26,20 @@ this.ngxAni.kill(rect);
 `;
 
     private animation(rect: ElementRef) {
+        let w: number = Math.min(this.getWidth() - 150, 600);
+
         this.ngxAni.fromTo(rect, 5,
             this.ngxAni.getTransform({ x: 0 }),
-            this.ngxAni.getTransform({ x: 600 })
+            this.ngxAni.getTransform({ x: w })
         );
     }
 
     private kill(rect: ElementRef) {
         this.ngxAni.kill(rect);
+    }
+
+    private getWidth(): number {
+        return document.body.clientWidth || document.documentElement.clientWidth || window.screen.availWidth;
     }
 
 }
