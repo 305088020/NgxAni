@@ -1,6 +1,6 @@
 {
     "name": "ngxani",
-    "version": "1.0.6",
+    "version": "1.0.9",
     "license": "BSD",
     "angular-cli": {},
     "keywords": [
@@ -10,7 +10,6 @@
         "animate"
     ],
     "main": "src/index.ts",
-    "module": "src/index.ts",
     "homepage": "https://github.com/a-jie/NgxAni",
     "scripts": {
         "ng": "ng",
