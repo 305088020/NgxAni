@@ -1,3 +1,4 @@
-.DS_Store
+.DS_Stor
+npm-debug.log
 dist/
 node_modules/
