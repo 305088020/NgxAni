@@ -1,14 +1,16 @@
 {
     "name": "ngxani",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "license": "BSD",
     "angular-cli": {},
     "keywords": [
         "angular2",
         "typescript",
-        "animation"
+        "animation",
+        "animate"
     ],
     "main": "src/index.ts",
+    "module": "src/index.ts",
     "homepage": "https://github.com/a-jie/NgxAni",
     "scripts": {
         "ng": "ng",
