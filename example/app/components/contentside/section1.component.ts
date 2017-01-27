@@ -14,9 +14,9 @@ import { Component } from '@angular/core';
 
                 It is very simple and convenient to use. At the same time it has very good compatibility.
                 <br>
-                It can almost help you achieve any animation effect you want. You only need a few lines of code to get what you want！
-                <br>
-                NgxAni is a service class, do not rely on any file. You can use it in any Component or Directive.
+                NgxAni is written by <span class="color">typescript</span> and can be easily put into your angular2+ project!
+
+                NgxAni is a <span class="color">Service class</span> which do not rely on any class. You can use it in any <span class="color">Component</span> or <span class="color">Directive</span>.
                 </p>
             </div>
 
@@ -34,7 +34,7 @@ $ npm install ngxani</code></pre>
     </div>
 
     `,
-    styles: ['']
+    styles: ['.color{color:#ff0000;}']
 })
 
 export class Section1Component {

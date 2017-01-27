@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
             <div class="info">
                 <h4 class="blur">Features</h4>
                 <p>
-                NgxAni, depends on css transtion. So it can run on all modern browsers.It is faster than the javascript simulation of the animation.<br>
+                NgxAni, depends on <span class="color">css transtion</span>. So it can run on all modern browsers.It is faster than the javascript simulation of the animation.<br>
                 It is easier to use than the official animation system<a href="https://angular.io/docs/ts/latest/guide/animations.html">https://angular.io/docs/ts/latest/guide/animations.html</a> on the browser.<br>
                 </p>
 
@@ -20,7 +20,8 @@ import { Component } from '@angular/core';
         </div>
     </div>
 
-    `
+    `,
+    styles: ['.color{color:#ff0000;}']
 })
 
 export class Section2Component {

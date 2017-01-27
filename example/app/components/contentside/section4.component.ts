@@ -13,7 +13,7 @@ import { NgxAni } from '../../../../src';
                 <h4 class="blur">Next Steps</h4>
                 <p>
                 NgxAni is not strongly dependent on angular2 and typescript.<br>
-                The next step I want to bring it to React<a href="https://facebook.github.io/react/">https://facebook.github.io/react/</a>,
+                The next step I want to bring it to <span class="color">React</span><a href="https://facebook.github.io/react/">https://facebook.github.io/react/</a>,
                 so stay tuned!
                 </p>
             </div>
@@ -22,7 +22,9 @@ import { NgxAni } from '../../../../src';
         </div>
     </div>
 
-    `
+    `,
+
+    styles: ['.color{color:#ff0000;}']
 })
 
 export class Section4Component {
