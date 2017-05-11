@@ -1,3 +1,3 @@
-export * from "./ngxani.module";
-export * from "./ngxani";
-export * from "./ngxcss";
+export * from './ngxani.module';
+export * from './ngxani';
+export * from './ngxcss';

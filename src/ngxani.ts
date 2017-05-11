@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 
 import { NgxCss } from './ngxcss';
 import { NgxEASE, IEase } from './ngxease';
+import { Dic } from './dic';
+import { getHTMLElement } from './gethtmlelement';
 
 /**
 * NgxAni
 *
 * use
-* --CODE: this.ngxani.to(a,.3,{height:"100px",ease: this.ngxani['easeOutBack']});
-* --CODE: this.ngxani.fromTo(a,.3,{height:"200px"},{height:"100px"});
+* --CODE: this.ngxani.to(a,.3,{height:'100px',ease: this.ngxani['easeOutBack']});
+* --CODE: this.ngxani.fromTo(a,.3,{height:'200px'},{height:'100px'});
 *
 * property
 * --CODE: this.ngxani.useTranstionEvent=false;  Whether to use the native transtionend event - there are compatibility issues with the default settimeout
@@ -27,9 +29,9 @@ export class NgxAni {
     private keyword: string[] = ['nokill', 'ease', 'delay', 'all', 'class', 'onStart', 'onUpdate', 'onComplete'];
     private anis = {};
 
-    public useTranstionEvent: boolean = false;
-    public debug: boolean = false;
-    public compatible: boolean = true;
+    useTranstionEvent: boolean = false;
+    debug: boolean = false;
+    compatible: boolean = true;
 
     constructor(private ngxCss: NgxCss) {
         for (let key in NgxEASE) {
@@ -37,13 +39,13 @@ export class NgxAni {
         }
     }
 
-    public get support(): boolean {
+    get support(): boolean {
         return this.ngxCss.hasTransition();
     }
 
     /**
     * to
-    * this.ngxani.to(a,.3,{height:"100px"});
+    * this.ngxani.to(a,.3,{height:'100px'});
     */
     to(ele: any, time: number, args: {
         ease?: string;
@@ -64,10 +66,10 @@ export class NgxAni {
                     transition += prefix + 'transform';
                 }
             } else {
-                transition += this.ngxCss.convertStyleMode(styles[i], "css");
+                transition += this.ngxCss.convertStyleMode(styles[i], 'css');
             }
 
-            //transition += this.ngxCss.convertStyleMode(styles[i], "css");
+            //transition += this.ngxCss.convertStyleMode(styles[i], 'css');
             transition += ' ' + time + 's';
             if (args.ease) transition += ' ' + args.ease;
             if (args.delay) transition += ' ' + args.delay + 's';
@@ -81,7 +83,7 @@ export class NgxAni {
 
     /**
     * fromTo
-    * this.ngxani.fromTo(a,.3,{height:"200px"},{height:"100px"});
+    * this.ngxani.fromTo(a,.3,{height:'200px'},{height:'100px'});
     */
     fromTo(ele: any, time: number, fromArgs: Object, toArgs: Object) {
         this.kill(ele);
@@ -93,14 +95,13 @@ export class NgxAni {
     * kill
     * this.ngxani.kill(a);
     */
-    kill(ele: any, complete?: boolean): string {
+    kill(ele: any, complete?: boolean) {
         ele = getHTMLElement(ele);
         this.ngxCss.css3(ele, 'transition', 'none !important');
         this.ngxCss.css3(ele, 'transition', 'none');
 
         Dic.get(ele).id && clearTimeout(Dic.get(ele).id);
         Dic.get(ele).event && this.ngxCss.removeEventListener(ele, Dic.get(ele).event, Dic.get(ele).handler);
-        return;
     }
 
     getTransform(param: {
@@ -115,8 +116,8 @@ export class NgxAni {
         let transform = ``;
 
         if (param.x !== undefined || param.y !== undefined) {
-            let x = typeof param.x == "string" ? param.x : (param.x || 0) + 'px';
-            let y = typeof param.y == "string" ? param.y : (param.y || 0) + 'px';
+            let x = typeof param.x == 'string' ? param.x : (param.x || 0) + 'px';
+            let y = typeof param.y == 'string' ? param.y : (param.y || 0) + 'px';
             transform += ` translate(${x}, ${y})`;
         }
 
@@ -125,11 +126,11 @@ export class NgxAni {
 
         if (param.pre) transform = `${param.pre} ` + transform;
         let css = {
-            "transform": transform,
-            "-webkit-transform": transform,
-            "-ms-transform": transform,
-            "-o-transform": transform,
-            "-moz-transform": transform
+            'transform': transform,
+            '-webkit-transform': transform,
+            '-ms-transform': transform,
+            '-o-transform': transform,
+            '-moz-transform': transform
         };
 
         if (param.no) {
@@ -206,7 +207,7 @@ export class NgxAni {
 
         if (args.onComplete) {
             if (this.useTranstionEvent) {
-                Dic.get(ele).event = this.getTranstionEnd();
+                Dic.get(ele).event = this.ngxCss.getTranstionEndEvent();
                 Dic.get(ele).fun = args.onComplete;
                 Dic.get(ele).handler = ((ele: any) => {
                     Dic.get(ele).fun();
@@ -251,88 +252,4 @@ export class NgxAni {
 
         return obj;
     }
-
-    private getTranstionEnd() {
-        let transitionend = '';
-        var prefix = this.ngxCss.getPrefix(1);
-        switch (prefix) {
-            case 'Webkit':
-                transitionend = 'webkitTransitionEnd';
-                break;
-            case 'ms':
-                transitionend = 'MSTransitionEnd';
-                break;
-            case 'O':
-                transitionend = 'oTransitionEnd';
-                break;
-            case 'Moz':
-                transitionend = 'transitionend';
-                break;
-            default:
-                transitionend = 'transitionend';
-        }
-
-        return transitionend;
-    }
-}
-
-interface IDic {
-    id?: any;
-    event?: string;
-    fun?: any;
-    handler?: any;
-    [propName: string]: any;
-}
-
-class Dic {
-    public static setId(ele: { __nxid?: any;[propName: string]: any; }): string {
-        let id = this.id();
-        ele = getHTMLElement(ele);
-        ele.__nxid = ele.__nxid || id;
-        this.map[id] = this.map[id] || {};
-        return id;
-    }
-
-    public static get(ele: { __nxid?: any;[propName: string]: any; }): IDic {
-        ele = getHTMLElement(ele);
-        let id = ele.__nxid;
-
-        if ((!id || !this.map[id]))
-            this.setId(ele);
-
-        return this.map[ele.__nxid];
-    }
-
-    public static delete(ele: string | { __nxid?: any;[propName: string]: any; }) {
-        if (typeof ele == "string") {
-            delete this.map[ele];
-        } else {
-            let nele = getHTMLElement(ele);
-            delete this.map[nele.__nxid];
-            delete nele.__nxid;
-        }
-    }
-
-    private static id(): string {
-        return 'xxxx-xxx-xxxx-yxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-
-    private static map: Object = {};
-};
-
-let getHTMLElement = (ele: {
-    nodeName?: any;
-    jquery?: any;
-    nativeElement?: any;
-    [propName: string]: any;
-}) => {
-    if (ele.nodeName)
-        return ele;
-    else if (ele.jquery)
-        return ele[0];
-    else
-        return ele.nativeElement;
 }
