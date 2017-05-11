@@ -33,14 +33,14 @@ import { Component } from '@angular/core';
 
 export class ContentSideComponent {
 
-    private datas = [
+    datas: any[] = [
         { link: "#section1", title: "Overview", isActive: true },
         { link: "#section2", title: "Reference", isActive: false },
         { link: "#section3", title: "API & Demo", isActive: false },
         { link: "#section4", title: "Future", isActive: false },
     ];
 
-    private clickHandler(data, index) {
+    clickHandler(data, index) {
         for (let i = 0; i < this.datas.length; i++)
             this.datas[i].isActive = false;
 
@@ -57,8 +57,8 @@ export class ContentSideComponent {
             this.scrollTo(htmlElement, 500, top);
     }
 
-    private getOffsetTop(dom) {
-        let top = 0;
+    getOffsetTop(dom): number {
+        let top: number = 0;
         let offsetParent = dom;
 
         while (offsetParent != null && offsetParent != document.body) {
@@ -69,8 +69,8 @@ export class ContentSideComponent {
         return top;
     }
 
-    private id;
-    private scrollTo(dom, time, top) {
+    timeoutId: any;
+    scrollTo(dom, time, top) {
         var from = dom.scrollTop;
         var to = top;
         var t = 1000 / 60;
@@ -78,13 +78,13 @@ export class ContentSideComponent {
         var d = (to - from) / k;
         var i = 0;
 
-        clearInterval(this.id);
-        this.id = setInterval(() => {
+        clearInterval(this.timeoutId);
+        this.timeoutId = setInterval(() => {
             dom.scrollTop += d;
             i++;
 
             if (i >= k) {
-                clearInterval(this.id);
+                clearInterval(this.timeoutId);
                 dom.scrollTop = to;
             }
         }, t);

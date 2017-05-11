@@ -21,11 +21,11 @@ import { Component } from '@angular/core';
 
 export class HeadSideComponent {
 
-    private download() {
+    download() {
         location.href = "https://github.com/a-jie/NgxAni";
     }
 
-    private npm() {
+    npm() {
         location.href = "https://www.npmjs.com/package/ngxani";
     }
 }

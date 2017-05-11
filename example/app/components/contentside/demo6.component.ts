@@ -21,7 +21,7 @@ export class Demo6Component {
 
     constructor(private ngxAni: NgxAni, private ngxCss: NgxCss) { }
 
-    private code = `
+    code: string = `
 /** css style
 .ani1 {
     background-color: #ff0000 !important;
@@ -32,12 +32,12 @@ export class Demo6Component {
 }
 */
 
-private animation(rect){
+animation(rect){
   this.ngxAni.to(rect, 1, { "className": "ani1" });
 }
 `;
 
-    private animation(rect) {
+    animation(rect: HTMLElement) {
         this.ngxCss.removeClass(rect, "ani1");
         this.ngxAni.fromTo(rect, 1,
             { "className": "ani0" },
@@ -45,7 +45,7 @@ private animation(rect){
         );
     }
 
-    private getWidth(): number {
+    getWidth(): number {
         return document.body.clientWidth || document.documentElement.clientWidth || window.screen.availWidth;
     }
 

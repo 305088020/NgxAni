@@ -27,12 +27,13 @@ import { getHTMLElement } from './gethtmlelement';
 export class NgxAni {
 
     private keyword: string[] = ['nokill', 'ease', 'delay', 'all', 'class', 'onStart', 'onUpdate', 'onComplete'];
-    private anis = {};
+    private anis: any = {};
 
     useTranstionEvent: boolean = false;
     debug: boolean = false;
     compatible: boolean = true;
-
+    ease: IEase = NgxEASE;
+    
     constructor(private ngxCss: NgxCss) {
         for (let key in NgxEASE) {
             this[key] = NgxEASE[key];

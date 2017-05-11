@@ -18,7 +18,7 @@ export class Demo8Component {
 
     constructor(private ngxAni: NgxAni) { }
 
-    private code = `
+    code: string = `
 //////////////////// NgxAni ////////////////////
 //use css transtionend event
 this.ngxAni.useTranstionEvent = true;
@@ -38,14 +38,14 @@ this.ngxCss.getPrefix();
 this.ngxCss.setOriginCenter(ele: HTMLElement);
 `;
 
-    private animation(rect: ElementRef) {
+    animation(rect: ElementRef) {
         this.ngxAni.fromTo(rect, 5,
             this.ngxAni.getTransform({ x: 0 }),
             this.ngxAni.getTransform({ x: 600 })
         );
     }
 
-    private kill(rect: ElementRef) {
+    kill(rect: ElementRef) {
         this.ngxAni.kill(rect);
     }
 

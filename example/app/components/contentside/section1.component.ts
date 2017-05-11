@@ -38,7 +38,7 @@ $ npm install ngxani</code></pre>
 })
 
 export class Section1Component {
-    private code = `
+    code: string = `
 //1. import module
 import { NgxAniModule } from 'ngxani';
 
@@ -51,12 +51,12 @@ import { NgxAniModule } from 'ngxani';
 import { NgxAni } from 'ngxani';
 
 //4. constructor
-constructor(private ngxAni: NgxAni) { }
+constructor(ngxAni: NgxAni) { }
 
 //5. use
 //<button (click)="animation(rect)">click animate</button>
 //<div class="rect" #rect></div>
-private animation(dom: ElementRef) {
+animation(dom: ElementRef) {
   this.ngxAni.to(dom, 1, {
       width: "200px",
       height: "100px"

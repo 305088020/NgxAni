@@ -26,7 +26,7 @@ import { Component } from '@angular/core';
 
 export class Section2Component {
 
-    private code = `
+    code: string = `
 /////////////element can be used in four ways./////////////
 //1. ElementRef.
 @ViewChild('child') child: ElementRef;

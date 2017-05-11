@@ -24,9 +24,9 @@ export class Demo5Component {
 
     constructor(private ngxAni: NgxAni) { }
 
-    private ease: string = "easeOutBack";
+    ease: string = "easeInOutBack";
 
-    private datas = [
+    datas: string[] = [
         'linear',
         'easeBasic',
         'easeIn',
@@ -54,8 +54,8 @@ export class Demo5Component {
         'easeInOutBack'
     ];
 
-    private code = `
-private animation(rect){
+    code: string = `
+animation(rect){
   this.ngxAni.to(rect, 1, {
       "width": "200px",
       "background-color": "#ffcc00",
@@ -65,7 +65,7 @@ private animation(rect){
 `;
 
     //animation function
-    private animation(rect) {
+    animation(rect: ElementRef) {
         let w: number = Math.min(this.getWidth() - 150, 450);
 
         this.ngxAni.fromTo(rect, .7,
@@ -78,8 +78,8 @@ private animation(rect){
             ));
     }
 
-    private getWidth(): number {
-        return document.body.clientWidth|| document.documentElement.clientWidth  || window.screen.availWidth;
+    getWidth(): number {
+        return document.body.clientWidth || document.documentElement.clientWidth || window.screen.availWidth;
     }
 
 }

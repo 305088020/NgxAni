@@ -21,11 +21,11 @@ export class Demo7Component {
 
     constructor(private ngxAni: NgxAni) { }
 
-    private code = `
+    code = `
 this.ngxAni.kill(rect);
 `;
 
-    private animation(rect: ElementRef) {
+    animation(rect: ElementRef) {
         let w: number = Math.min(this.getWidth() - 150, 600);
 
         this.ngxAni.fromTo(rect, 5,
@@ -34,11 +34,11 @@ this.ngxAni.kill(rect);
         );
     }
 
-    private kill(rect: ElementRef) {
+    kill(rect: ElementRef) {
         this.ngxAni.kill(rect);
     }
 
-    private getWidth(): number {
+    getWidth(): number {
         return document.body.clientWidth || document.documentElement.clientWidth || window.screen.availWidth;
     }
 

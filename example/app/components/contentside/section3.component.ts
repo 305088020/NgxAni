@@ -24,14 +24,14 @@ import { Component } from '@angular/core';
         </div>
     </div>
     `,
-    styles:[
-      ".hr{height:1px;border:none;border-top:1px dashed #0066CC}"
+    styles: [
+        ".hr{height:1px;border:none;border-top:1px dashed #0066CC}"
     ]
 })
 
 export class Section3Component {
 
-    private code = `
+    code: string = `
 <button class="pointer btn btn-primary" (click)="animation(rect)">click animate</button>
 <div class="rect" #rect></div>`;
 

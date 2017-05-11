@@ -35,12 +35,12 @@ export class Demo4Component {
 
     @ViewChild('result') result: ElementRef;
 
-    private changeHandler(use) {
+    changeHandler(use: boolean) {
         this.ngxAni.useTranstionEvent = use;
     }
 
-    private code = `
-private animation(rect){
+    code: string = `
+animation(rect){
   //Whether to use the native transtionend event - there are compatibility issues
   //the default is use setTimeout
   this.ngxAni.useTranstionEvent = true or false;
@@ -56,7 +56,7 @@ private animation(rect){
 }
 `;
 
-    private animation(rect) {
+    animation(rect: ElementRef) {
         this.result.nativeElement.innerHTML = "<span style='color:#0275d8'>STATE : running</span>";
 
         let scale = Math.random() * 1.2;
@@ -73,8 +73,8 @@ private animation(rect){
         });
     }
 
-    private getRandomColor() {
-        return '#' + (function(h) {
+    getRandomColor(): string {
+        return '#' + (function (h) {
             return new Array(7 - h.length).join("0") + h
         })((Math.random() * 0x1000000 << 0).toString(16))
     }
