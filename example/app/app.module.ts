@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeadSideComponent } from './components/headside/headside.component';
 import { ContentSideComponent } from './components/contentside/contentside.component';
+
 import { Section1Component } from './components/contentside/section1.component';
 import { Section2Component } from './components/contentside/section2.component';
 import { Section3Component } from './components/contentside/section3.component';
@@ -27,6 +28,7 @@ import { NgxAniModule } from '../../src/';
         AppComponent,
         HeadSideComponent,
         ContentSideComponent,
+
         Section1Component,
         Section2Component,
         Section3Component,
@@ -41,12 +43,14 @@ import { NgxAniModule } from '../../src/';
         Demo7Component,
         Demo8Component
     ],
+
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         NgxAniModule
     ],
+    
     providers: [],
     bootstrap: [AppComponent]
 })

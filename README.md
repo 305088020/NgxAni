@@ -1,6 +1,6 @@
 # NgxAni
 
-A Simple Animation Plugin for Angular2+.
+A Simple Animation Plugin for Angular.
 
 ## Overview
 NgxAni is an animation plugin for AngularJS2+.   
