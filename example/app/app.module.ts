@@ -21,7 +21,7 @@ import { Demo6Component } from './components/contentside/demo6.component';
 import { Demo7Component } from './components/contentside/demo7.component';
 import { Demo8Component } from './components/contentside/demo8.component';
 
-import { NgxAniModule } from '../../src/';
+import { NgxAniModule } from 'test-ngxani';
 
 @NgModule({
     declarations: [

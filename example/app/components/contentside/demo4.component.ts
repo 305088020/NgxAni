@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgxAni } from '../../../../src';
+import { NgxAni } from 'test-ngxani';
 
 @Component({
     selector: 'demo4',

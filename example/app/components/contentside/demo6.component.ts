@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgxAni } from '../../../../src';
-import { NgxCss } from '../../../../src';
+import { NgxAni } from 'test-ngxani';
+import { NgxCss } from 'test-ngxani';
 
 @Component({
     selector: 'demo6',
